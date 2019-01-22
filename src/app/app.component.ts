@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 // NEED TO IMPORT THIS SO MathLib() IS RECOGNIZED BELOW
 import { MathLib } from './shared/math-lib.module';
-
-// import { CoreModule } from './core/core.module';    // includes Material Design buttons
-
 
 
 @Component({
@@ -14,33 +12,46 @@ import { MathLib } from './shared/math-lib.module';
 })
 export class AppComponent {
   title = 'Angular Module Demo';
-  mathLib = null;
+
+  mathLib = new MathLib();   // this is why MathLib must be visible here!
   a = 0;
   b = 0;
+  c = 0;
+  d = 0;
+
+  // using single FormControls - not a FormGroup
+  inputA = new FormControl('');
+  inputB = new FormControl('');
+  inputC = new FormControl('');
+  inputD = new FormControl('');
 
   constructor() {
   }
 
-  ngOnInit() {
-    this.mathLib = new MathLib();   // this is why MathLib must be visible here!
-    this.a = 0;
-    this.b = 0;
+  ngOnInit(): void {
+    this.inputA.setValue(1);
+    this.inputB.setValue(2);
+    this.inputC.setValue(3);
+    this.inputD.setValue("4");    // string works too
   }
 
+
+  // WRONG! DO NOT USE document.getElementById
+  
   showAnswerAdd() {
     let el = document.getElementById("answer-add");
-    // cannot use .value on the <input> elements! 
-    this.a = parseInt(document.getElementById("inpAddA").getAttribute("value"));
-    this.b = parseInt(document.getElementById("inpAddB").getAttribute("value"));
+    this.a = this.inputA.value;
+    this.b = this.inputB.value;
+    // change this to use auto-updating
     el.innerHTML = this.mathLib.add(this.a, this.b).toString();   // API call
   }
 
   showAnswerMult() {
     let el = document.getElementById("answer-mult");
-    // cannot use .value on the <input> elements! 
-    this.a = parseInt(document.getElementById("inpMultA").getAttribute("value"));
-    this.b = parseInt(document.getElementById("inpMultB").getAttribute("value"));
-    el.innerHTML = this.mathLib.mult(this.a, this.b).toString();   // API call
+    this.c = this.inputC.value;
+    this.d = this.inputD.value;
+    // change this to use auto-updating
+    el.innerHTML = this.mathLib.mult(this.c, this.d).toString();   // API call
   }
 
 }

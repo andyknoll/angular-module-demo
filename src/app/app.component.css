@@ -1,7 +1,7 @@
 .row {
     position: absolute;
     padding: 0px;
-    width: 480px;
+    width: 520px;
     height: 40px;
     border: 0px solid gray;
 }
@@ -13,6 +13,23 @@
     font-size: 1.25em;
 }
 
+.input-a {
+    position: absolute;
+    padding: 4px;
+    width: 80px;
+    height: 40px;
+    left: 220px;
+    font-size: 1.75em;
+    text-align: right;
+    border: 1px solid gray;
+}
+
+#inputA { left: 210px; }
+#inputB { left: 320px; }
+#inputC { left: 210px; }
+#inputD { left: 320px; }
+
+
 .answer {
     position: absolute;
     padding: 4px;
@@ -21,23 +38,9 @@
     right: 0px;
     font-size: 1.75em;
     text-align: right;
-    background-color: #eeeeee;
+    /*background-color: #eeeeee;*/
     border: 1px solid gray;
 }
-
-.input-a {
-    position: absolute;
-    padding: 4px;
-    width: 60px;
-    height: 40px;
-    left: 220px;
-    font-size: 1.75em;
-    text-align: right;
-    border: 1px solid gray;
-}
-
-#inpAddA, #inpMultA { left: 210px; }
-#inpAddB, #inpMultB { left: 300px; }
 
 
 .button-b {

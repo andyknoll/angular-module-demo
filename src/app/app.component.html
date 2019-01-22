@@ -1,33 +1,37 @@
 <main class="no-select">
     
-  <h1>Welcome to the {{ title }}</h1>
+  <h2>Welcome to the {{ title }}</h2>
   <p>Andy Knoll - Jan 17, 2019</p>
   <hr>
 
   <br>
-  <p>This app imports a core module and a shared feature module.</p>
+  <p>
+    This app imports a core module and a shared feature module. It also demonstrates Form Controls and Reactive Forms.
+    The answer boxes automatically update when input values are changed.
+  </p>
   <p>
     <b>Core module:</b> this provides a set of Material Design buttons for reuse throughout the app.
   </p>
   <p>
     <b>Shared module:</b> this provides a simple exported MathLib class with methods add(a, b) and mult(a, b).
   </p>
-      
   <br>
+
   <div class="row">
-    <button class="button-a" (click)="showAnswerAdd()">add(a, b)</button>
-    <input id="inpAddA" class="input-a" type="number" value="1">
-    <input id="inpAddB" class="input-a" type="number" value="2">
+    <button class="button-a" (click)="showAnswerAdd()" mat-raised-button>add(a, b)</button>
+    <input id="inputA" class="input-a" type="number" [formControl]="inputA" (input)="showAnswerAdd()">
+    <input id="inputB" class="input-a" type="number" [formControl]="inputB" (input)="showAnswerAdd()">
     <div id="answer-add"class="answer"></div>
   </div>
 
   <br>
   <br>
   <br>
+
   <div class="row">
-    <button class="button-a" (click)="showAnswerMult()">mult(a, b)</button>
-    <input id="inpMultA" class="input-a" type="number" value="3">
-    <input id="inpMultB" class="input-a" type="number" value="4">
+    <button class="button-a" (click)="showAnswerMult()" mat-raised-button>mult(a, b)</button>
+    <input id="inputC" class="input-a" type="number" [formControl]="inputC" (input)="showAnswerMult()">
+    <input id="inputD" class="input-a" type="number" [formControl]="inputD" (input)="showAnswerMult()">
     <div id="answer-mult"class="answer"></div>
   </div>
 

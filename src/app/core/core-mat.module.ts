@@ -1,4 +1,4 @@
-// this is the CoreModule
+// this is the CoreMatModule
 // I am trying to import Material Buttons 
 // and then use them in another module which imports this one
 
@@ -6,19 +6,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-//import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    //BrowserAnimationsModule,  // I thought these were needed for ripples!
-    MatButtonModule
+    MatButtonModule,
+    BrowserAnimationsModule     // I thought these were needed for ripples!?
   ],
   exports: [
-    //BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    BrowserAnimationsModule
   ]
 })
-export class CoreModule { }
+export class CoreMatModule { }
